@@ -1,0 +1,11 @@
+{
+    "name": "nathaliaruiz/p8_to-do_list",
+    "type": "project",
+    "authors": [
+        {
+            "name": "NathaRuiz",
+            "email": "nruizm98@gmail.com"
+        }
+    ],
+    "require": {}
+}
