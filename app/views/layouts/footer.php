@@ -1,5 +1,5 @@
 </main>
-    <footer class=" bg-info  text-center mt-5 mb-5  shadow-sm  rounded f">
+    <footer class=" bg-info  text-center mt-5 shadow-sm  rounded fixed-bottom">
 
         <div class="text-center p-3">
             © 2024 Copyright

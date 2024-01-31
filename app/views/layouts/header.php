@@ -14,7 +14,7 @@
 <body>
     <header>
         <!-- place navbar here -->
-        <nav class="navbar navbar-expand navbar-light bg-info shadow-sm mb-5 rounded fw-bold">
+        <nav class="navbar navbar-expand navbar-light bg-info shadow-sm mb-5 rounded fw-bold fixed-top">
             <div class="nav navbar-nav ">
                 <a class="nav-item nav-link active font-weight-bold" href="#" aria-current="page">Inicio </a>
                 <a class="nav-item nav-link" href="#">Mis Listas</a>
