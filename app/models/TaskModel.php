@@ -23,7 +23,6 @@ class TaskModel {
         $query = "INSERT INTO tasks (title, task_description, task_state) VALUES (?, ?, ?)";
         $statement = $this->db->get_connection()->prepare($query);
 
-        // Asegúrate de validar y limpiar los datos antes de la inserción
         $title = $data['title'];
         $description = $data['task_description'];
         $state = $data['task_state'];
@@ -32,7 +31,6 @@ class TaskModel {
             $result = $statement->execute([$title, $description, $state]);
             return $result;
         } catch (Exception $e) {
-            // Manejar la excepción de una manera significativa para tu aplicación
             throw new Exception("Error al crear la tarea: " . $e->getMessage());
         }
 

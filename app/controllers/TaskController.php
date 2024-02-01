@@ -17,14 +17,12 @@ class TaskController
 
     public function index()
     {
-        // Implementa la lógica para mostrar la lista de libros
         $tasks = $this->taskModel->getAllTasks();
         include_once __DIR__ . '/../views/index.php';
     }
 
     public function create()
     {
-        // Implementa la lógica para mostrar el formulario de creación de libros
         include_once __DIR__ . '/../views/create.php';
     }
 
@@ -35,11 +33,9 @@ class TaskController
 
             return $result;
         } catch (Exception $e) {
-            // Manejar la excepción de una manera significativa para tu aplicación
             echo $e->getMessage();
         }
     }
 
-    // Implementa otros métodos según sea necesario
 }
  

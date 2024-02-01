@@ -32,7 +32,6 @@ switch ($action) {
         break;
 
     case 'store':
-        // Asegúrate de validar y limpiar los datos antes de pasarlos al controlador
         $data = $_POST;
         $controller->store($data);
         $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
@@ -41,7 +40,7 @@ switch ($action) {
         
 
     default:
-        // Mostrar una página de error o redirigir a la página principal
+        // redirigir a la página principal en caso de error
         header("Location: index.php?action=index");
         exit;
 }
