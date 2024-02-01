@@ -26,7 +26,6 @@ class TaskModel {
         $title = $data['title'];
         $description = $data['task_description'];
         $state = $data['task_state'];
-
         try {
             $result = $statement->execute([$title, $description, $state]);
             return $result;
@@ -37,5 +36,4 @@ class TaskModel {
         
     }
 
-    // Agrega otros métodos según sea necesario, como show, edit, update, delete, etc.
 }

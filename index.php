@@ -5,13 +5,12 @@ use App\Models\DatabaseConnection;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Configuración de la base de datos
 $server = "127.0.0.1";
 $database = "p8_todo_list";
 $username = "root";
 $password = "basededatos";
 
-// Inicialización de la conexión a la base de datos
+
 $db = new DatabaseConnection($server, $database, $username, $password);
 $db->connect();
 
