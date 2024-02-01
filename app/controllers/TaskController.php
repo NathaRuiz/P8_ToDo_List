@@ -43,7 +43,9 @@ class TaskController
 
 
     public function delete(){
-        
+        $id = $_GET['id'];
+        $result = $this->taskModel->deleteTask($id);
+        return $result;
     }
 
 }
