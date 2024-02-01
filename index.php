@@ -5,13 +5,12 @@ use App\Models\DatabaseConnection;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Configuración de la base de datos
 $server = "127.0.0.1";
 $database = "p8_todo_list";
 $username = "root";
 $password = "basededatos";
 
-// Inicialización de la conexión a la base de datos
+
 $db = new DatabaseConnection($server, $database, $username, $password);
 $db->connect();
 
@@ -32,7 +31,6 @@ switch ($action) {
         break;
 
     case 'store':
-        // Asegúrate de validar y limpiar los datos antes de pasarlos al controlador
         $data = $_POST;
         $controller->store($data);
         $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
@@ -41,7 +39,7 @@ switch ($action) {
         
 
     default:
-        // Mostrar una página de error o redirigir a la página principal
+        //  redirigir a la página principal en caso de error
         header("Location: index.php?action=index");
         exit;
 }
