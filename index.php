@@ -23,7 +23,6 @@ $action = $_GET['action'] ?? 'index';
 switch ($action) {
     case 'index':
         $tasks = $controller->index();
-        include_once __DIR__ . '/app/views/index.php';
         break;
 
     case 'create':
@@ -34,7 +33,6 @@ switch ($action) {
         $data = $_POST;
         $controller->store($data);
         $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
-        include_once __DIR__ . '/app/views/index.php';
         break;
         
 
