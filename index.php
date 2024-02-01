@@ -39,7 +39,7 @@ switch ($action) {
         
 
     default:
-        //  redirigir a la página principal en caso de error
+        // redirigir a la página principal en caso de error
         header("Location: index.php?action=index");
         exit;
 }
