@@ -32,7 +32,10 @@ switch ($action) {
         $controller->store($data);
         $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
         break;
-        
+
+    case 'delete':
+        $controller->delete();
+        break;
 
     default:
         // redirigir a la página principal en caso de error
