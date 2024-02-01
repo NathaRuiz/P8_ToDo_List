@@ -37,5 +37,10 @@ class TaskController
         }
     }
 
+    public function edit()
+    {
+        include_once __DIR__ . '/../views/edit.php';
+    }
+
 }
  
