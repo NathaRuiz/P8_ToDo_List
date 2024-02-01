@@ -35,6 +35,7 @@ switch ($action) {
 
     case 'delete':
         $controller->delete();
+        $tasks = $controller->index();
         break;
 
     default:
