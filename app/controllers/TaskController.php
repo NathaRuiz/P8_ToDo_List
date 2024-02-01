@@ -19,13 +19,13 @@ class TaskController
     {
         // Implementa la lógica para mostrar la lista de libros
         $tasks = $this->taskModel->getAllTasks();
-        include_once '../views/index.php';
+        include_once __DIR__ . '/../views/index.php';
     }
 
     public function create()
     {
         // Implementa la lógica para mostrar el formulario de creación de libros
-        include_once '../views/create.php';
+        include_once __DIR__ . '/../views/create.php';
     }
 
     public function store($data)
@@ -33,12 +33,7 @@ class TaskController
         try {
             $result = $this->taskModel->createTask($data);
 
-            if ($result) {
-                $response = "Se ha registrado con éxito la tarea {$data['title']} en la base de datos";
-                return $response;
-            } else {
-                throw new Exception("Error en el registro, vuelve a intentarlo");
-            }
+            return $result;
         } catch (Exception $e) {
             // Manejar la excepción de una manera significativa para tu aplicación
             echo $e->getMessage();

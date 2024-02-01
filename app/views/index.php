@@ -1,12 +1,12 @@
-<?php include_once '../views/layouts/header.php'; ?>
+<?php include_once __DIR__ . '/layouts/header.php'; ?>
 
-<section class="mt-5">
-<form  action="create.php?action=create" method="POST">
-<button type="submit" class="btn btn-primary">Crear Tarea</button>
+<section class="mt-5 mx-3">
+<form  action="index.php?action=create" method="POST">
+<button type="submit" class="btn btn-primary mt-5">Crear Tarea</button>
 </form>
-    <div class="table-responsive mt-5">
+    <div class="table-responsive">
         <?php if (!empty($tasks)): ?>
-            <table class="table table-striped table-bordered mt-5">
+            <table class="table table-striped table-bordered mt-2">
                 <thead class="table-primary">
                     <tr>
                         <th scope="col">ID_TAREA</th>
@@ -37,4 +37,4 @@
     </div>
 </section>
 
-<?php include_once '../views/layouts/footer.php'; ?>
+<?php include_once __DIR__ . '/layouts/footer.php';?>

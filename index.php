@@ -1,18 +1,9 @@
-<!-- <?php
-//INSERT INTO `tasks` (`id_task`, `title`, `description`, `completed`) VALUES (NULL, 'Crear Tarea', 'Los usuarios PODRÁN agregar nuevas tareas a la lista, proporcionando un título y una descripción.', '0');
-include("./views/layouts/header.php");
-?>
-
-Bienvenido
-
-<?php include("./views/layouts/footer.php"); ?> -->
-
 <?php
 
 use App\Controllers\TaskController;
 use App\Models\DatabaseConnection;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 // Configuración de la base de datos
 $server = "127.0.0.1";
@@ -33,7 +24,7 @@ $action = $_GET['action'] ?? 'index';
 switch ($action) {
     case 'index':
         $tasks = $controller->index();
-        include_once '../views/index.php';
+        include_once __DIR__ . '/app/views/index.php';
         break;
 
     case 'create':
@@ -44,12 +35,13 @@ switch ($action) {
         // Asegúrate de validar y limpiar los datos antes de pasarlos al controlador
         $data = $_POST;
         $controller->store($data);
+        $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
+        include_once __DIR__ . '/app/views/index.php';
         break;
-
-    // Agregar otros casos según las acciones disponibles
+        
 
     default:
-        // Manejar acciones desconocidas o mostrar una página de error
-        echo "Acción no válida";
-        break;
+        // Mostrar una página de error o redirigir a la página principal
+        header("Location: index.php?action=index");
+        exit;
 }
