@@ -24,7 +24,6 @@ class DatabaseConnection {
            $this -> connection -> setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
            $setName = $this ->connection -> prepare("SET NAMES 'utf8'");
            $setName -> execute();
-           echo "se hizo la conexion a la base de datos";
         } catch (\PDOException $e) {
             echo "Falló la conexion a la base de datos: ".$e->getMessage();
         }
