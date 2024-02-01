@@ -20,7 +20,7 @@ $action = $_GET['action'] ?? 'index';
 
 switch ($action) {
     case 'index':
-        $tasks = $controller->index();
+        $controller->index();
         break;
 
     case 'create':
@@ -30,12 +30,12 @@ switch ($action) {
     case 'store':
         $data = $_POST;
         $controller->store($data);
-        $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
+        $controller->index(); // Recargar las tareas después de crear una nueva
         break;
 
     case 'edit':
         $id = $_GET['id'];
-        $controller->edit();
+        $controller->edit($id);
         break;
 
     default:

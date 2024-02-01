@@ -30,15 +30,18 @@ class TaskController
     {
         try {
             $result = $this->taskModel->createTask($data);
-
             return $result;
+
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $result = $this->taskModel->editTask($id);
+        return $result;
+        
         include_once __DIR__ . '/../views/edit.php';
     }
 

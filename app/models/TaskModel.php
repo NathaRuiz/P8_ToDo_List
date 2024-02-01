@@ -36,4 +36,16 @@ class TaskModel {
         
     }
 
+
+
+
+
+
+
+    public function editTask($id){
+        $query = "SELECT * FROM tasks WHERE id_task = :id";
+        $statement = $this->db->get_connection()->prepare($query);
+        $result = $statement->execute([':id' => $id]);
+    }
+
 }
