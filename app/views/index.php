@@ -32,7 +32,7 @@
                 </tbody>
             </table>
         <?php else: ?>
-            <p>No hay tareas disponibles.</p>
+            <p>No hay tareas Registradas.</p>
         <?php endif; ?>
     </div>
 </section>
