@@ -26,7 +26,7 @@
         </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+            <button type="submit" class="btn btn-success">Guardar Tarea</button>
             <button type="button" class="btn btn-secondary" onclick="location.href='index.php?action=index'">Cancelar</button>
         </div>
     </form>

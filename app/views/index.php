@@ -1,41 +1,38 @@
 <?php include_once __DIR__ . '/layouts/header.php'; ?>
 
 <section class="mt-5 mx-3">
-<h2 class="pt-4">Mi lista de Tareas</h2>
-<form  action="index.php?action=create" method="POST">
-<button type="submit" class="btn btn-primary mt-2 ">Crear Tarea</button>
-</form>
-    <div class="table-responsive">
-        <?php if (!empty($tasks)): ?>
-            <table class="table table-striped table-bordered mt-2">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="col">ID_TAREA</th>
-                        <th scope="col">TITULO</th>
-                        <th scope="col">DESCRIPCION</th>
-                        <th scope="col">ESTADO</th>
-                        <th scope="col">ACCIONES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($tasks as $task): ?>
-                        <tr>
-                            <td scope="row"><?php echo $task['id_task']; ?></td>
-                            <td><?php echo $task['title']; ?></td>
-                            <td><?php echo $task['task_description']; ?></td>
-                            <td><?php echo $task['task_state']; ?></td>
-                            <td>
-                                <a href="index.php?action=edit&id=<?php echo $task['id_task']; ?>">Editar</a>                      
-                                <a href="index.php?action=delete&id=<?php echo $task['id_task']; ?>">Eliminar</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
+    <h2 class="pt-4">Mi lista de Tareas</h2>
+    <form action="index.php?action=create" method="POST">
+        <button type="submit" class="btn btn-primary mt-2 ">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            Crear Tarea
+        </button>
+    </form>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-4">
+    <?php if (!empty($tasks)) : ?>
+        <?php foreach ($tasks as $task) : ?>
+            <div class="col mb-4">
+                <div class="card shadow hover">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $task['title']; ?></h5>
+                        <p class="card-text"><?php echo $task['task_description']; ?></p>
+                        <p class="card-text"><strong>Estado:</strong> <?php echo $task['task_state']; ?></p>
+                        <div class="btn-group ">
+                            <a class="btn btn-warning" href="index.php?action=edit&id=<?php echo $task['id_task']; ?>">
+                                <i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar
+                            </a>
+                            <a class="btn btn-danger" href="index.php?action=delete&id=<?php echo $task['id_task']; ?>">
+                                <i class="fa fa-trash"></i> Borrar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php else : ?>
             <p>No hay tareas Registradas.</p>
         <?php endif; ?>
     </div>
 </section>
 
-<?php include_once __DIR__ . '/layouts/footer.php';?>
+<?php include_once __DIR__ . '/layouts/footer.php'; ?>

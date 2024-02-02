@@ -5,7 +5,10 @@ use App\Models\DatabaseConnection;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Incluyo el archivo de configuración que tiene los datos de mi bd
+// Defino la URL base del mi proyecto para facilitar el enlace de recursos
+define('BASE_URL', 'http://localhost/TrabajosPHP/Proyectos/P8_ToDo_List/');
+
+// Incluyo el archivo de configuración que tiene los datos de mi bd de manera privada
 require_once __DIR__ . '/config.php';
 
 // Inicialización de la conexión a la base de datos con los datos de config
@@ -29,7 +32,7 @@ switch ($action) {
 
     case 'store':
         $controller->store();
-        $controller->index(); // Recargar las tareas después de crear una nueva
+        $controller->index(); // aqui recargo las tareas después de crear una nueva
         break;
 
     case 'edit':
@@ -47,7 +50,7 @@ switch ($action) {
         break;
 
     default:
-        // redirigir a la página principal en caso de error
+        // redirigir a la página principal en caso de error en la ruta
         header("Location: index.php?action=index");
         exit;
 }
