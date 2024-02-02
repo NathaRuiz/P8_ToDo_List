@@ -14,8 +14,8 @@ For this project I have used the :
 
 ### Mockups 
 The project is responsive and has the following views:
-![Index view](/public/assets/images/index.JPG)
 ![Create view](/public/assets/images/create.JPG)
+![Index view](/public/assets/images/index.JPG)
 ![Edit view](/public/assets/images/edit.JPG)
 ![Show view](/public/assets/images/show.JPG)
 
