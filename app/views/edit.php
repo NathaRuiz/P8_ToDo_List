@@ -2,25 +2,25 @@
 
 
 <section class="mt-5 py-2 px-5">
-    <h2 class="pt-4">Crear Nueva Tarea</h2>
-    <form action="index.php?action=edit" method="POST">
+    <h2 class="pt-4">Actualizar datos de un Tarea</h2>
+    <form action="index.php?action=update" method="POST">
         <div class="mb-3">
             <label for="title" class="form-label">Título:</label>
-            <input type="text" class="form-control" name="title" value="hola" required>
+            <input type="text" class="form-control" name="title" value="<?php echo $task['title']; ?>" required>
         </div>
 
         <div class="mb-3">
             <label for="task_description" class="form-label">Descripción:</label>
-            <textarea class="form-control" name="task_description" value="hola hola hey"></textarea>
+            <textarea class="form-control" name="task_description"><?php echo $task['task_description']; ?></textarea>
         </div>
 
         <div class="mb-3">
             <label for="task_state" class="form-label">Estado:</label>
             <select class="form-select" id="inputGroupSelect01" name="task_state">
-                <option>Escoge...</option>
-                <option value="Por Hacer" selected>Por Hacer</option>
-                <option value="En Progreso">En Progreso</option>
-                <option value="Finalizado">Finalizado</option>
+                <option value="" <?php echo ($task['task_state'] === '') ? 'selected' : ''; ?>>Opciones...</option>
+                <option value="Por Hacer" <?php echo ($task['task_state'] === 'Por Hacer') ? 'selected' : ''; ?>>Por Hacer</option>
+                <option value="En Progreso" <?php echo ($task['task_state'] === 'En Progreso') ? 'selected' : ''; ?>>En Progreso</option>
+                <option value="Finalizado" <?php echo ($task['task_state'] === 'Finalizado') ? 'selected' : ''; ?>>Finalizado</option>
             </select>
         </div>
 

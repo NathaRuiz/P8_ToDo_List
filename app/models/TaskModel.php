@@ -42,10 +42,13 @@ class TaskModel {
 
 
 
-    public function editTask($id){
-        $query = "SELECT * FROM tasks WHERE id_task = :id";
-        $statement = $this->db->get_connection()->prepare($query);
-        $result = $statement->execute([':id' => $id]);
-    }
+    public function getTaskById($id)
+{
+    $query = "SELECT * FROM tasks WHERE id_task = ?";
+    $statement = $this->db->get_connection()->prepare($query);
+    $statement->execute([$id]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
 
 }

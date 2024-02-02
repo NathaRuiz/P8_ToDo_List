@@ -39,9 +39,7 @@ class TaskController
 
     public function edit($id)
     {
-        $result = $this->taskModel->editTask($id);
-        return $result;
-        
+        $task = $this->taskModel->getTaskById($id);
         include_once __DIR__ . '/../views/edit.php';
     }
 
