@@ -1,7 +1,7 @@
 </main>
     <footer class=" bg-info  text-center mt-5 shadow-sm  rounded fixed-bottom">
 
-        <div class="text-center p-3">
+        <div class="text-center p-2">
             © 2024 Copyright
         </div>
 
