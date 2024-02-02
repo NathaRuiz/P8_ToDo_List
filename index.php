@@ -49,6 +49,10 @@ switch ($action) {
         $controller->index();
         break;
 
+    case 'show':
+        $controller->show();
+        break;
+
     default:
         // redirigir a la página principal en caso de error en la ruta
         header("Location: index.php?action=index");
