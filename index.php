@@ -38,6 +38,11 @@ switch ($action) {
         $controller->edit($id);
         break;
 
+    case 'delete':
+        $controller->delete();
+        $tasks = $controller->index();
+        break;
+
     default:
         // redirigir a la página principal en caso de error
         header("Location: index.php?action=index");

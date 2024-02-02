@@ -37,10 +37,15 @@ class TaskController
         }
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $task = $this->taskModel->getTaskById($id);
         include_once __DIR__ . '/../views/edit.php';
+    }
+
+    public function delete(){
+        $id = $_GET['id'];
+        $result = $this->taskModel->deleteTask($id);
+        return $result;
     }
 
 }

@@ -25,8 +25,8 @@
                             <td><?php echo $task['task_description']; ?></td>
                             <td><?php echo $task['task_state']; ?></td>
                             <td>
-                                <a href="index.php?action=edit&id=<?php echo $task['id_task']; ?>">Editar</a>
-                                <a href="delete.php?id=<?php echo $task['id_task']; ?>">Eliminar</a>
+                                <a href="index.php?action=edit&id=<?php echo $task['id_task']; ?>">Editar</a>                      
+                                <a href="index.php?action=delete&id=<?php echo $task['id_task']; ?>">Eliminar</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
