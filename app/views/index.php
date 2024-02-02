@@ -21,6 +21,9 @@
                             <a class="btn btn-warning" href="index.php?action=edit&id=<?php echo $task['id_task']; ?>">
                                 <i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar
                             </a>
+                            <a class="btn btn-info" href="index.php?action=show&id=<?php echo $task['id_task']; ?>">
+                                <i class="fa fa-eye"></i> Ver Detalles
+                            </a>
                             <a class="btn btn-danger" href="index.php?action=delete&id=<?php echo $task['id_task']; ?>">
                                 <i class="fa fa-trash"></i> Borrar
                             </a>
