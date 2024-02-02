@@ -52,5 +52,11 @@ class TaskController
         return $result;
     }
 
+    public function show(){
+        $id = $_GET['id'];
+        $task = $this->taskModel->getTaskById($id);
+        include_once __DIR__ . '/../views/show.php';
+    }
+
 }
  
