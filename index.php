@@ -8,7 +8,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 // Incluyo el archivo de configuración que tiene los datos de mi bd
 require_once __DIR__ . '/config.php';
 
-// Inicialización de la conexión a la base de datos
+// Inicialización de la conexión a la base de datos con los datos de config
 $db = new DatabaseConnection(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 $db->connect();
 
@@ -20,7 +20,7 @@ $action = $_GET['action'] ?? 'index';
 
 switch ($action) {
     case 'index':
-        $tasks = $controller->index();
+        $controller->index();
         break;
 
     case 'create':
@@ -30,7 +30,12 @@ switch ($action) {
     case 'store':
         $data = $_POST;
         $controller->store($data);
-        $tasks = $controller->index(); // Recargar las tareas después de crear una nueva
+        $controller->index(); // Recargar las tareas después de crear una nueva
+        break;
+
+    case 'edit':
+        $id = $_GET['id'];
+        $controller->edit($id);
         break;
 
     case 'delete':

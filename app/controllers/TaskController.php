@@ -30,17 +30,17 @@ class TaskController
     {
         try {
             $result = $this->taskModel->createTask($data);
-
             return $result;
+
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-
-
-
-
+    public function edit($id){
+        $task = $this->taskModel->getTaskById($id);
+        include_once __DIR__ . '/../views/edit.php';
+    }
 
     public function delete(){
         $id = $_GET['id'];

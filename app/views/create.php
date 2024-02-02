@@ -7,6 +7,7 @@
         <div class="mb-3">
             <label for="title" class="form-label">Título:</label>
             <input type="text" class="form-control" name="title" required>
+            <small class="text-muted ">El título es un campo obligatorio.</small>
         </div>
 
         <div class="mb-3">
@@ -17,7 +18,7 @@
         <div class="mb-3">
             <label for="task_state" class="form-label">Estado:</label>
             <select class="form-select" id="inputGroupSelect01" name="task_state">
-                <option selected>Escoge...</option>
+                <option value="">Opciones...</option>
                 <option value="Por Hacer">Por Hacer</option>
                 <option value="En Progreso">En Progreso</option>
                 <option value="Finalizado">Finalizado</option>
