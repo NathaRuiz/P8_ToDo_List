@@ -33,16 +33,19 @@ The project is responsive and has the following views:
 3. Open PHPMyAdmin in your web browser:
 - Click on "SQL" in the top navigation bar.
 - In the SQL query window, paste the provided SQL code:
-`CREATE DATABASE p8_todo_list;
 
-USE p8_all_list;
+```sql
+CREATE DATABASE p8_todo_list;
+
+USE p8_todo_list;
 
 CREATE TABLE tasks (
-    id_task INT(11) PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    task_description VARCHAR(255) DEFAULT NULL,
-    task_state VARCHAR(50) DEFAULT NULL
-);`
+id_task INT(11) PRIMARY KEY,
+title VARCHAR(100) NOT NULL,
+task_description VARCHAR(255) DEFAULT NULL,
+task_state VARCHAR(50) DEFAULT NULL
+);
+```
 - Click "Run" (this may vary depending on the version of PHPMyAdmin, but there is usually a similar button). This should create the p8_todo_list database and the tasks table on your MySQL server through PHPMyAdmin.
 
 4. [Clone](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository) the repository.
@@ -54,12 +57,15 @@ CREATE TABLE tasks (
 
 7. Open the project terminal in Visual Studio Code and run `composer install`.
 
-8. Create a config.php file at the same level as the README.md document where you define the data to connect to the database, e.g.: `<?php
+8. Create a config.php file at the same level as the README.md document where you define the data to connect to the database, e.g.: 
+```php
+<?php
 define('DB_HOST', '127.0.0.1');
 define('DB_USER', 'root');
-define('DB_PASS', 'here you put the password of your database, if you don't have it you leave it empty just the quotes');
+define('DB_PASS', 'here you put the password of your database, if you do not have it you leave it empty just the simple quotes');
 define('DB_NAME', 'p8_all_list');
-?>`
+?>
+```
 
 9. Access your project in the browser: Open your web browser and visit the project path with localhost first, e.g.: http://localhost/P8_ToDo_List/
 
