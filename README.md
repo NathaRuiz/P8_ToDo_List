@@ -14,10 +14,8 @@ For this project I have used the :
 
 ### Mockups 
 The project is responsive and has the following views:
-![Create view](/public/assets/images/create.JPG)
-![Index view](/public/assets/images/Index.JPG)
-![Edit view](/public/assets/images/edit.JPG)
-![Show view](/public/assets/images/show.JPG)
+[Mockups](https://drive.google.com/drive/folders/1uxVYYORWDkrPsIkEHlgDco2ciTzt-9E0?usp=sharing)
+
 
 ### Page Display
 [URL-Demo]()
