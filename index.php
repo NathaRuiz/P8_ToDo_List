@@ -28,18 +28,21 @@ switch ($action) {
         break;
 
     case 'store':
-        $data = $_POST;
-        $controller->store($data);
+        $controller->store();
         $controller->index(); // Recargar las tareas después de crear una nueva
         break;
 
     case 'edit':
-        $id = $_GET['id'];
-        $controller->edit($id);
+        $controller->edit();
         break;
 
     case 'delete':
         $controller->delete();
+        $controller->index();
+        break;
+
+    case 'update':
+        $controller->update();
         $controller->index();
         break;
 

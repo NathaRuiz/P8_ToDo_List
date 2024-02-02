@@ -5,14 +5,17 @@ namespace App\Models;
 use PDO;
 use Exception;
 
-class TaskModel {
+class TaskModel
+{
     private $db;
 
-    public function __construct(DatabaseConnection $db) {
+    public function __construct(DatabaseConnection $db)
+    {
         $this->db = $db;
     }
 
-    public function getAllTasks() {
+    public function getAllTasks()
+    {
         try {
             $query = "SELECT * FROM tasks";
             $statement = $this->db->get_connection()->query($query);
@@ -23,7 +26,8 @@ class TaskModel {
         }
     }
 
-    public function createTask($data) {
+    public function createTask($data)
+    {
         $query = "INSERT INTO tasks (title, task_description, task_state) VALUES (?, ?, ?)";
         $statement = $this->db->get_connection()->prepare($query);
 
@@ -36,11 +40,10 @@ class TaskModel {
         } catch (Exception $e) {
             throw new Exception("Error al crear la tarea: " . $e->getMessage());
         }
-
-        
     }
-  
-    public function getTaskById($id){
+
+    public function getTaskById($id)
+    {
         try {
             $query = "SELECT * FROM tasks WHERE id_task = ?";
             $statement = $this->db->get_connection()->prepare($query);
@@ -51,8 +54,9 @@ class TaskModel {
             throw new Exception("Error al obtener la tarea por ID: " . $e->getMessage());
         }
     }
-    
-    public function deleteTask($id){ 
+
+    public function deleteTask($id)
+    {
         try {
             $query = "DELETE FROM tasks WHERE id_task = :id";
             $statement = $this->db->get_connection()->prepare($query);
@@ -63,5 +67,25 @@ class TaskModel {
         }
     }
 
+    public function updateTask($id, $data)
+    {
+        try {
+            $title = $data['title'];
+            $description = $data['task_description'];
+            $state = $data['task_state'];
 
+            $query = "UPDATE tasks SET title = ?, task_description = ?, task_state = ? WHERE id_task = ?";
+            $statement = $this->db->get_connection()->prepare($query);
+
+            $result = $statement->execute([$title, $description, $state, $id]);
+
+            if ($result) {
+                return true;
+            } else {
+                throw new Exception("Error al actualizar la tarea en la base de datos.");
+            }
+        } catch (Exception $e) {
+            throw new Exception("Error al actualizar la tarea: " . $e->getMessage());
+        }
+    }
 }

@@ -26,13 +26,15 @@ class TaskController
         include_once __DIR__ . '/../views/create.php';
     }
 
-    public function store($data)
+    public function store()
     {
+        $data = $_POST;
         $result = $this->taskModel->createTask($data);
         return $result;
     }
 
-    public function edit($id){
+    public function edit(){
+        $id = $_GET['id'];
         $task = $this->taskModel->getTaskById($id);
         include_once __DIR__ . '/../views/edit.php';
     }
@@ -40,6 +42,13 @@ class TaskController
     public function delete(){
         $id = $_GET['id'];
         $result = $this->taskModel->deleteTask($id);
+        return $result;
+    }
+
+    public function update(){
+        $id = $_GET['id'];
+        $data = $_POST;
+        $result = $this->taskModel->updateTask($id,$data);
         return $result;
     }
 
