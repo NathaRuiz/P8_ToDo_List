@@ -53,6 +53,10 @@ switch ($action) {
         $controller->show();
         break;
 
+    case 'filter':
+        $controller->filter();
+        break;
+
     default:
         // redirigir a la página principal en caso de error en la ruta
         header("Location: index.php?action=index");
