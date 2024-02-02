@@ -13,10 +13,14 @@ class TaskModel {
     }
 
     public function getAllTasks() {
-        $query = "SELECT * FROM tasks";
-        $statement = $this->db->get_connection()->query($query);
-
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $query = "SELECT * FROM tasks";
+            $statement = $this->db->get_connection()->query($query);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            throw new Exception("Error al obtener todas las tareas: " . $e->getMessage());
+        }
     }
 
     public function createTask($data) {
@@ -37,17 +41,26 @@ class TaskModel {
     }
   
     public function getTaskById($id){
-        $query = "SELECT * FROM tasks WHERE id_task = ?";
-        $statement = $this->db->get_connection()->prepare($query);
-        $statement->execute([$id]);
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        try {
+            $query = "SELECT * FROM tasks WHERE id_task = ?";
+            $statement = $this->db->get_connection()->prepare($query);
+            $statement->execute([$id]);
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            throw new Exception("Error al obtener la tarea por ID: " . $e->getMessage());
+        }
     }
-
+    
     public function deleteTask($id){ 
-        $query = "DELETE FROM tasks WHERE id_task = :id";
-        $statement = $this->db->get_connection()->prepare($query);
-        $result = $statement->execute([':id' => $id]);
+        try {
+            $query = "DELETE FROM tasks WHERE id_task = :id";
+            $statement = $this->db->get_connection()->prepare($query);
+            $result = $statement->execute([':id' => $id]);
+            return $result;
+        } catch (Exception $e) {
+            throw new Exception("Error al eliminar la tarea: " . $e->getMessage());
+        }
     }
 
 

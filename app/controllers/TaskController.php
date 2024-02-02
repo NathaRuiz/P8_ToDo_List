@@ -28,13 +28,8 @@ class TaskController
 
     public function store($data)
     {
-        try {
-            $result = $this->taskModel->createTask($data);
-            return $result;
-
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
+        $result = $this->taskModel->createTask($data);
+        return $result;
     }
 
     public function edit($id){

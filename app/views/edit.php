@@ -7,6 +7,7 @@
         <div class="mb-3">
             <label for="title" class="form-label">Título:</label>
             <input type="text" class="form-control" name="title" value="<?php echo $task['title']; ?>" required>
+            <small class="text-muted">El título es un campo obligatorio.</small>
         </div>
 
         <div class="mb-3">
