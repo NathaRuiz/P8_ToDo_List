@@ -22,6 +22,7 @@ The project is responsive and has the following views:
 ### Page Display
 [URL-Demo]()
 
+
 ## Installations Steps
 
 1. Download and Install XAMPP: Visit the official XAMPP [website](https://www.apachefriends.org/index.html) and download the version compatible with your operating system (Windows, macOS or Linux). Follow the installation instructions provided on the website.
