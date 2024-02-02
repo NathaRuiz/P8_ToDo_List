@@ -89,5 +89,17 @@ class TaskModel
         }
     }
 
-    
+    public function getFilteredTasks($filter, $includeNullState = false)
+    {
+        if ($includeNullState) {
+            $query = "SELECT * FROM tasks WHERE task_state = ? OR task_state = '' ";
+        } else {
+            $query = "SELECT * FROM tasks WHERE task_state = ?";
+        }
+
+        $statement = $this->db->get_connection()->prepare($query);
+        $statement->execute([$filter]);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

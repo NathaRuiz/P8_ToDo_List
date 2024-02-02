@@ -33,30 +33,47 @@ class TaskController
         return $result;
     }
 
-    public function edit(){
+    public function edit()
+    {
         $id = $_GET['id'];
         $task = $this->taskModel->getTaskById($id);
         include_once __DIR__ . '/../views/edit.php';
     }
 
-    public function delete(){
+    public function delete()
+    {
         $id = $_GET['id'];
         $result = $this->taskModel->deleteTask($id);
         return $result;
     }
 
-    public function update(){
+    public function update()
+    {
         $id = $_GET['id'];
         $data = $_POST;
-        $result = $this->taskModel->updateTask($id,$data);
+        $result = $this->taskModel->updateTask($id, $data);
         return $result;
     }
 
-    public function show(){
+    public function show()
+    {
         $id = $_GET['id'];
         $task = $this->taskModel->getTaskById($id);
         include_once __DIR__ . '/../views/show.php';
     }
 
+    public function filter()
+    {
+        $filter = $_POST['filter'] ?? '';
+
+        if ($filter === 'Por Hacer') {
+            $tasks = $this->taskModel->getFilteredTasks($filter, true);
+        } elseif (!empty($filter)) {
+            $tasks = $this->taskModel->getFilteredTasks($filter,false);
+        } else {
+            $tasks = $this->taskModel->getAllTasks();
+        }
+
+        include_once __DIR__ . '/../views/index.php';
+    }
 }
- 
