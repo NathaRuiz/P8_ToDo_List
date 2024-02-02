@@ -3,7 +3,7 @@
 
 <section class="mt-5 py-2 px-5">
     <h2 class="pt-4">Actualizar datos de un Tarea</h2>
-    <form action="index.php?action=update" method="POST">
+    <form action="index.php?action=update&id=<?php echo $task['id_task']; ?>" method="POST">
         <div class="mb-3">
             <label for="title" class="form-label">Título:</label>
             <input type="text" class="form-control" name="title" value="<?php echo $task['title']; ?>" required>
