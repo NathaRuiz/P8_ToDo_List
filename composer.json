@@ -7,5 +7,10 @@
             "email": "nruizm98@gmail.com"
         }
     ],
+    "autoload":{
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
     "require": {}
 }
